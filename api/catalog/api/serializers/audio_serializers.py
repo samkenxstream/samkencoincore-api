@@ -1,3 +1,7 @@
+from rest_framework import serializers
+
+from elasticsearch_dsl.response import Hit
+
 from catalog.api.docs.media_docs import fields_to_md
 from catalog.api.models import AudioReport
 from catalog.api.models.audio import Audio
@@ -9,8 +13,6 @@ from catalog.api.serializers.media_serializers import (
     _validate_enum,
     get_search_request_source_serializer,
 )
-from elasticsearch_dsl.response import Hit
-from rest_framework import serializers
 
 
 class AudioSetSerializer(serializers.Serializer):

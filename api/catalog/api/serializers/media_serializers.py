@@ -1,10 +1,12 @@
 from collections import namedtuple
 from urllib.parse import urlparse
 
+from rest_framework import serializers
+
+from drf_yasg.utils import swagger_serializer_method
+
 import catalog.api.licenses as license_helpers
 from catalog.api.controllers.search_controller import get_sources
-from drf_yasg.utils import swagger_serializer_method
-from rest_framework import serializers
 
 
 def _validate_enum(enum_name, valid_values: set, given_values: str):

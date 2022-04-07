@@ -1,3 +1,5 @@
+from rest_framework import serializers
+
 from catalog.api.docs.media_docs import fields_to_md
 from catalog.api.models import Image, ImageReport
 from catalog.api.serializers.base import SchemableHyperlinkedIdentityField
@@ -9,7 +11,6 @@ from catalog.api.serializers.media_serializers import (
     _validate_enum,
     get_search_request_source_serializer,
 )
-from rest_framework import serializers
 
 
 ImageSearchRequestSourceSerializer = get_search_request_source_serializer(
