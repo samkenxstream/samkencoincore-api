@@ -5,8 +5,9 @@ import logging as log
 import pprint
 from itertools import accumulate
 from math import ceil
-from typing import TYPE_CHECKING, List, Literal, Optional, Tuple
+from typing import List, Literal, Optional, Tuple
 
+from django.conf import settings
 from django.core.cache import cache
 from rest_framework.request import Request
 
@@ -18,13 +19,9 @@ from elasticsearch_dsl.query import Query
 from elasticsearch_dsl.response import Hit, Response
 
 import catalog.api.models as models
-from catalog import settings
+from catalog.api.serializers.media_serializers import MediaSearchRequestSerializer
 from catalog.api.utils.dead_link_mask import get_query_hash, get_query_mask
 from catalog.api.utils.validate_images import validate_images
-
-
-if TYPE_CHECKING:
-    from catalog.api.serializers.media_serializers import MediaSearchRequestSerializer
 
 
 ELASTICSEARCH_MAX_RESULT_WINDOW = 10000
