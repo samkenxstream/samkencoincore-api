@@ -180,6 +180,10 @@ _api-install:
 @api-test docker_args="" tests="": _api-up
     docker-compose exec {{ docker_args }} web ./test/run_test.sh {{ tests }}
 
+# Run Django check command inside Docker
+@api-check docker_args="": _api-up
+    docker-compose exec {{ docker_args }} web python manage.py check
+
 # Run API tests locally
 api-testlocal args="":
     cd api && pipenv run ./test/run_test.sh {{ args }}

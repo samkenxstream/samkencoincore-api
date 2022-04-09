@@ -127,7 +127,9 @@ jobs:
       - name: Start API, ingest and index test data
         run: just init
       - name: Run API tests
-        run: just api-test -T
+        run: |
+          just api-check -T
+          just api-test -T
 
       - name: Make developer docs
         run: just sphinx-make -T
