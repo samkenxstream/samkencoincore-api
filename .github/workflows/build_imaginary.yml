@@ -33,6 +33,11 @@ jobs:
         with:
           go-version: "1.17"
 
+      - name: Update Go version # https://github.com/golang/go/issues/29948
+        working-directory: imaginary
+        run: |
+          sed -i 's/GOLANG_VERSION=1.17/GOLANG_VERSION=1.18/' Dockerfile
+
       - name: Update modules # https://github.com/h2non/imaginary/issues/387
         working-directory: imaginary
         run: |
